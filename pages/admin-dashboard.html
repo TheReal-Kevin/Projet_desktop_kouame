@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/admin-dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="dashboard-wrapper">
+      <!-- barre latérale -->
+      <aside class="sidebar">
+        <nav class="sidebar-nav">
+          <ul>
+            <li data-page="timetable">
+              <i class="fas fa-calendar-alt"></i> admin-timetable
+            </li>
+            <li data-page="admin-presence">
+              <i class="fas fa-check-circle"></i> admin-presence
+            </li>
+            <li data-page="admin-statistics">
+              <i class="fas fa-chart-pie"></i> admin-statistics
+            </li>
+            <li data-page="admin-graphs">
+              <i class="fas fa-chart-line"></i> admin-graphs
+            </li>
+            <li data-page="admin-justifications">
+              <i class="fas fa-check-circle"></i> admin-justifications
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- contenu principal -->
+      <main class="main-content">
+        <header class="main-header">
+          <h1><i class="fas fa-tachometer-alt"></i> admin-dashboard</h1>
+          <div class="user-info">
+            <p><i class="fas fa-user-circle"></i> Welcome, <span id="user-name"></span></p>
+            <a href="#" class="logout-btn">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+          </div>
+        </header>
+
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3><i class="fas fa-chalkboard-teacher"></i> Coordinators</h3>
+                    <p id="coordinator-count">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3><i class="fas fa-user-graduate"></i> Students</h3>
+                    <p id="student-count">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3><i class="fas fa-users"></i> Teachers</h3>
+                    <p id="teacher-count">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3><i class="fas fa-user-friends"></i> Parents</h3>
+                    <p id="parent-count">0</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- gestion des utilisateurs -->
+        <section class="user-management">
+          <h2>User Management</h2>
+
+          <!-- liste des utilisateurs -->
+          <div class="user-list">
+            <table>
+              <thead>
+                <tr>
+                  <th><i class="fas fa-user"></i> Name</th>
+                  <th><i class="fas fa-user-tag"></i> Role</th>
+                  <th><i class="fas fa-cogs"></i> Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- contenu dynamique pour les utilisateurs -->
+                <tr>
+                  <td>
+                    <button class="btn-edit">
+                        Edit
+                    </button>
+                    <button class="btn-delete">
+                        Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- formulaire de création d'un utilisateur -->
+          <div class="create-user">
+            <h3><i class="fas fa-user-plus"></i> Create New User</h3>
+            <form action="#" method="post">
+              <label for="name"><i class="fas fa-user"></i> Name:</label>
+              <input type="text" id="name" name="name" required />
+
+              <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+              <input type="email" id="email" name="email" required />
+
+              <label for="password"><i class="fas fa-lock"></i> Password:</label>
+              <div class="password-container">
+                <input type="password" id="password" name="password" required />
+                <button type="button" id="generate-password" class="btn-generate">
+                  <i class="fas fa-key"></i> Generate
+                </button>
+                <button type="button" id="toggle-password" class="btn-toggle">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <div class="generated-password" style="display: none;">
+                <p>Generated Password: <span id="generated-text"></span></p>
+                <p class="password-info">Please save this password securely.</p>
+              </div>
+              <div class="password-strength">
+                <div class="strength-meter"></div>
+                <p class="strength-text">Password strength: <span>None</span></p>
+              </div>
+
+              <label for="role"><i class="fas fa-user-tag"></i> Role:</label>
+              <select id="role" name="role" required>
+                <!-- affichage dynamique -->
+              </select>
+              
+              <!-- Champ pour les classes, caché par défaut -->
+              <div id="class-container" style="display: none">
+                <label for="class-select">Class:</label>
+                <select id="class-select" name="class">
+                  <!-- affichage dynamique -->
+                </select>
+              </div>
+
+              <div id="student-container" style="display: none">
+                <label for="student-select"><i class="fas fa-child"></i> Assign Student:</label>
+                <select id="student-select" name="student" multiple>
+                  <!-- affichage dynamique -->
+                </select>
+                <p class="select-info">Hold Ctrl (Windows) or Cmd (Mac) to select multiple students</p>
+              </div>
+
+              <button type="submit" class="create-btn">
+                <i class="fas fa-plus-circle"></i> Create User
+              </button>
+            </form>
+          </div>
+
+          <!-- formulaire d'édition d'un utilisateur -->
+          <div class="edit-user" style="display: none">
+            <h3><i class="fas fa-user-edit"></i> Edit User</h3>
+            <form action="#" method="post">
+              <input type="hidden" id="edit-user-id" name="userId" />
+              
+              <label for="edit-name"><i class="fas fa-user"></i> Name:</label>
+              <input type="text" id="edit-name" name="name" required />
+
+              <label for="edit-email"><i class="fas fa-envelope"></i> Email:</label>
+              <input type="email" id="edit-email" name="email" required />
+
+              <label for="edit-password"><i class="fas fa-lock"></i> Password:</label>
+              <input type="password" id="edit-password" name="password" />
+              <div class="password-strength">
+                <div class="strength-meter" id="edit-strength-meter"></div>
+                <p class="strength-text">Password strength: <span id="edit-strength-text">None</span></p>
+              </div>
+
+              <label for="edit-role"><i class="fas fa-user-tag"></i> Role:</label>
+              <select id="edit-role" name="role" required></select>
+
+              <!-- conteneur pour la sélection de classe -->
+              <div id="edit-class-container" style="display: none">
+                <label for="edit-class-select"><i class="fas fa-graduation-cap"></i> Class:</label>
+                <select id="edit-class-select" name="class">
+                  <!-- affichage dynamique -->
+                </select>
+              </div>
+
+              <div id="edit-student-container" style="display: none">
+                <label for="edit-student-select"><i class="fas fa-child"></i> Assign Student:</label>
+                <select id="edit-student-select" name="student" multiple>
+                  <!-- affichage dynamique -->
+                </select>
+                <p class="select-info">Hold Ctrl (Windows) or Cmd (Mac) to select multiple students</p>
+              </div>
+
+              <button type="submit" class="edit-btn">
+                <i class="fas fa-check"></i> Update User
+              </button>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="../js/logout.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/admin.js"></script>
+    <script src="../js/timetable.js"></script>
+  </body>
+</html>

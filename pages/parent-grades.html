@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes d'assiduité des élèves</title>
+    <link rel="stylesheet" href="../css/parent-grades.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <div class="sidebar">
+            <div class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="parent-timetable.html">
+                            <i class="fas fa-calendar-alt"></i>
+                            parent-timetable
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="parent-grades.html">
+                            <i class="fas fa-graduation-cap"></i>
+                            parent-grades
+                        </a>
+                    </li>
+                    <li>
+                        <a href="parent-profile.html">
+                            <i class="fas fa-user"></i>
+                            parent-profile
+                        </a>
+                    </li>
+                    <li>
+                        <a href="parent-absences.html">
+                            <i class="fas fa-user-clock"></i>
+                            parent-absences
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="container">
+                <h1><i class="fas fa-graduation-cap"></i> Notes d'assiduité des élèves</h1>
+
+                <div class="student-selector">
+                    <select id="studentSelect">
+                        <option value="">Sélectionner un élève</option>
+                    </select>
+                </div>
+
+                <div class="filters">
+                    <select id="yearFilter">
+                        <option value="">Toutes les années</option>
+                    </select>
+                    <select id="semesterFilter">
+                        <option value="">Tous les semestres</option>
+                        <option value="1">Semestre 1</option>
+                        <option value="2">Semestre 2</option>
+                    </select>
+                </div>
+
+                <div class="grades-summary">
+                    <div class="summary-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Moyenne générale</h3>
+                        <p id="averageGrade">-</p>
+                    </div>
+                    <div class="summary-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Taux de présence global</h3>
+                        <p id="globalAttendance">-</p>
+                    </div>
+                </div>
+
+                <div class="grades-table">
+                    <table id="gradesTable">
+                        <thead>
+                            <tr>
+                                <th>Cours</th>
+                                <th>Note</th>
+                                <th>Sessions Totales</th>
+                                <th>Sessions Suivies</th>
+                                <th>Taux de présence</th>
+                                <th>Semestre</th>
+                                <th>Année</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Les données seront insérées ici dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/parent-grades.js"></script>
+    <script src="../js/navigation.js"></script>
+</body>
+</html> 

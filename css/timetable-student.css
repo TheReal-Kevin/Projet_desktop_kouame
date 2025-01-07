@@ -1,0 +1,311 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.timetable-wrapper {
+    display: flex;
+    min-height: 120vh;
+}
+
+.sidebar {
+    width: 240px;
+    background: linear-gradient(180deg, #3a6087 0%, #3498db 100%);
+    color: #fff;
+    padding: 20px;
+    transition: width 0.3s ease;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 16px;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar-nav li:hover {
+    background-color: #575757;
+    transform: translateX(5px);
+}
+
+.sidebar-nav li.active {
+    background-color: var(--secondary-color);
+}
+
+.sidebar-nav i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-nav li:hover i {
+    transform: rotate(15deg);
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.main-header h1 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.class-info {
+    color: var(--secondary-color);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#student-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    background-color: #ecf0f1;
+    transition: all 0.3s ease;
+    box-shadow: var(--box-shadow);
+}
+
+#student-name::before {
+    content: '\f007';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: var(--secondary-color);
+}
+
+#student-name:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+    background-color: #dfe6e9;
+}
+
+.timetable-container {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 24px;
+    margin-top: 20px;
+}
+
+.timetable-header {
+    display: grid;
+    grid-template-columns: 120px repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.day {
+    text-align: center;
+    font-weight: 600;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+}
+
+.day:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--hover-shadow);
+}
+
+.timetable-grid {
+    display: grid;
+    grid-template-columns: 120px repeat(5, 1fr);
+    gap: 10px;
+}
+
+.time-slot {
+    padding: 15px;
+    text-align: center;
+    background-color: #ecf0f1;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+}
+
+.course-cell {
+    padding: 15px;
+    text-align: center;
+    border-radius: var(--border-radius);
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    transition: all 0.3s ease;
+    box-shadow: var(--box-shadow);
+}
+
+.course-cell:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.course-name {
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.course-teacher {
+    font-size: 0.95em;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.course-room {
+    font-size: 0.9em;
+    color: #666;
+    font-weight: 500;
+}
+
+.empty-cell {
+    background-color: #ecf0f1;
+    box-shadow: none;
+}
+
+.logout-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #c0392b;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: var(--box-shadow);
+}
+
+.logout-btn i {
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #e74c3c;
+    transform: scale(1.05);
+    box-shadow: var(--hover-shadow);
+}
+
+.logout-btn:hover i {
+    transform: rotate(-20deg);
+}
+
+@media (max-width: 1200px) {
+    .timetable-grid, .timetable-header {
+        grid-template-columns: 100px repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .timetable-wrapper {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .main-content {
+        padding: 15px;
+    }
+    
+    .timetable-grid, .timetable-header {
+        grid-template-columns: 80px repeat(5, 1fr);
+        gap: 5px;
+    }
+    
+    .course-cell {
+        padding: 10px;
+        min-height: 80px;
+    }
+}
+
+.error-message {
+    grid-column: 1 / -1;
+    padding: 20px;
+    text-align: center;
+    color: #e74c3c;
+    background-color: #fde3e3;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.class-info {
+    color: var(--secondary-color);
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+#student-class-name {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.course-cell:hover i {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+} 

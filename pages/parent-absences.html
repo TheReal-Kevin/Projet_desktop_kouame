@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absences des Étudiants - Parent</title>
+    <link rel="stylesheet" href="../css/parent-absences.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="menu">
+                <div class="menu-item" data-page="parent-timetable">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>parent timetable</span>
+                </div>
+                <div class="menu-item active" data-page="parent-absences">
+                    <i class="fas fa-user-clock"></i>
+                    <span>parent absences</span>
+                </div>
+                <div class="menu-item" data-page="parent-grades">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>parent grades</span>
+                </div>
+                <div class="menu-item" data-page="parent-profile">
+                    <i class="fas fa-user"></i>
+                    <span>parent profile</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Absences des Étudiants</h1>
+            </div>
+
+            <!-- Conteneur pour les étudiants -->
+            <div class="students-container">
+                <!-- Les sections des étudiants seront ajoutées dynamiquement ici -->
+            </div>
+
+            <!-- Template pour la section d'un étudiant -->
+            <template id="student-template">
+                <div class="student-section">
+                    <h2 class="student-name"></h2>
+                    
+                    <!-- Absences justifiées -->
+                    <div class="absences-section">
+                        <div class="dropdown-header">
+                            <h3>
+                                <i class="fas fa-check-circle"></i>
+                                Absences Justifiées
+                                <span class="count-badge justified-count">0</span>
+                            </h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="dropdown-content justified-absences">
+                            <!-- Le contenu sera rempli dynamiquement -->
+                        </div>
+                    </div>
+
+                    <!-- Absences non justifiées -->
+                    <div class="absences-section">
+                        <div class="dropdown-header">
+                            <h3>
+                                <i class="fas fa-exclamation-circle"></i>
+                                Absences Non Justifiées
+                                <span class="count-badge unjustified-count">0</span>
+                            </h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="dropdown-content unjustified-absences">
+                            <!-- Le contenu sera rempli dynamiquement -->
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+
+    <script src="../js/parent-absences.js"></script>
+    <script src="../js/navigation.js"></script>
+</body>
+</html> 

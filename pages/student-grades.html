@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Attendance Grades</title>
+    <link rel="stylesheet" href="../css/student-grades.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <div class="sidebar">
+            <div class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="timetable-student.html">
+                            <i class="fas fa-calendar-alt"></i>
+                            timetable-student
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="student-grades.html">
+                            <i class="fas fa-graduation-cap"></i>
+                            My Attendance Grades
+                        </a>
+                    </li>
+                    <li data-page="student-absences">
+                        <i class="fas fa-exclamation-circle"></i>
+                        student-absences
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="container">
+                <h1><i class="fas fa-graduation-cap"></i> My Attendance Grades</h1>
+                
+                <div class="filters">
+                    <select id="yearFilter">
+                        <option value="">All Years</option>
+                    </select>
+                    <select id="semesterFilter">
+                        <option value="">All Semesters</option>
+                        <option value="1">Semester 1</option>
+                        <option value="2">Semester 2</option>
+                    </select>
+                </div>
+
+                <div class="grades-summary">
+                    <div class="summary-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Average Grade</h3>
+                        <p id="averageGrade">-</p>
+                    </div>
+                    <div class="summary-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Global Attendance Rate</h3>
+                        <p id="globalAttendance">-</p>
+                    </div>
+                </div>
+
+                <div class="grades-table">
+                    <table id="gradesTable">
+                        <thead>
+                            <tr>
+                                <th>Course</th>
+                                <th>Grade</th>
+                                <th>Total Sessions</th>
+                                <th>Attended Sessions</th>
+                                <th>Attendance Rate</th>
+                                <th>Semester</th>
+                                <th>Academic Year</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Les données seront insérées ici dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/student-grades.js"></script>
+    <script src="../js/navigation.js"></script>
+</body>
+</html> 

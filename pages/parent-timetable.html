@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Timetable</title>
+    <link rel="stylesheet" href="../css/parent-timetable.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <!-- barre latérale -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>parent-dashboard</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li data-page="timetable">
+                        <i class="fas fa-calendar-alt"></i> parent-timetable
+                    </li>
+                    <li data-page="profile">
+                        <i class="fas fa-user"></i> parent-profile
+                    </li>
+                    <li data-page="parent-grades">
+                        <i class="fas fa-graduation-cap"></i> parent-grades
+                    </li>
+                    <li data-page="parent-absences">
+                        <i class="fas fa-user-clock"></i> parent-absences
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- contenu principal -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1>parent-timetable</h1>
+                <div class="user-info">
+                    <p>Welcome, <span id="parent-name"></span></p>
+                    <a href="#" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </header>
+
+            <!-- Conteneur de l'emploi du temps -->
+            <div id="timetable-container" class="timetable-container">
+                <table class="timetable">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                        </tr>
+                    </thead>
+                    <tbody id="timetable-body">
+                        <!-- L'emploi du temps sera inséré ici dynamiquement -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="../js/parent-timetable.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

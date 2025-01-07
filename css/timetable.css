@@ -1,0 +1,576 @@
+body, h1, h2, h3, p, table, th, td {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+.sidebar {
+    width: 250px;
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    transition: width 0.3s ease;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sidebar-nav ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: #34495e;
+}
+
+.sidebar-nav ul li a i {
+    margin-right: 10px;
+}
+
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.main-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.main-header a {
+    color: #2980b9;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.main-header a:hover {
+    text-decoration: underline;
+}
+
+.main-header h1 i {
+    font-size: 24px;
+    color: #2980b9;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+
+.card {
+    background-color: #ffffff;
+    border-radius: 2px; 
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); 
+    cursor: pointer;
+}
+
+
+.card h2, .card h3 {
+    color: #2c3e50; 
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+
+.card p {
+    color: #00eefe; 
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+.card .content {
+    background-color: #f9f9f9; 
+    padding: 15px;
+    border-radius: 8px;
+}
+
+
+.card .form {
+    margin-top: 20px;
+    background-color: #ecf0f1; 
+    padding: 20px;
+    border-radius: 5px;
+}
+
+
+.card .btn-add-class {
+    background-color: #2980b9;
+    color: #fff;
+    padding: 14px 22px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card .btn-add-class:hover {
+    background-color: #3498db;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.timetable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.timetable th, .timetable td {
+    padding: 14px 18px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    color: #34495e;
+    transition: background-color 0.3s ease;
+}
+
+.timetable th {
+    background-color: #f2f2f2;
+    color: #2980b9;
+    font-weight: bold;
+}
+
+.timetable tr:nth-child(even) {
+    background-color: #f9f9f9; 
+}
+
+.timetable tr:nth-child(odd) {
+    background-color: #ffffff; 
+}
+
+.timetable tr:hover {
+    background-color: #eaf1f5;
+    cursor: pointer;
+}
+
+.timetable td {
+    font-size: 14px;
+    color: #333; 
+}
+
+.timetable .actions {
+    color: #dba334;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.timetable .actions:hover {
+    color: #1c1c1e;
+    font-weight: bold;
+}
+
+
+.class-schedule-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px; 
+    box-shadow: 0 4px 10px rgba(255, 250, 250, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+}
+
+
+.class-schedule-form:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); 
+}
+
+
+.class-schedule-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+.class-schedule-form label {
+    font-size: 16px;
+    color: #34495e; 
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+
+.class-schedule-form input,
+.class-schedule-form select {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.class-schedule-form input:focus,
+.class-schedule-form select:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 8px rgba(41, 128, 185, 0.4);
+    outline: none;
+}
+
+
+.class-schedule-form button {
+    background-color: #2980b9;
+    color: #fff;
+    padding: 14px 22px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.class-schedule-form button:hover {
+    background-color: #3498db;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 768px) {
+    .class-schedule-form {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .class-schedule-form h2 {
+        font-size: 20px;
+    }
+
+    .class-schedule-form label {
+        font-size: 14px;
+    }
+
+    .class-schedule-form input,
+    .class-schedule-form select {
+        font-size: 14px;
+    }
+
+    .class-schedule-form button {
+        padding: 12px 18px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .sidebar-nav ul li {
+        font-size: 14px;
+    }
+
+    .main-header h1 {
+        font-size: 22px;
+    }
+
+    .class-schedule-form {
+        margin-top: 20px;
+    }
+}
+
+.color-picker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.color-preview {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="color"] {
+    width: 50px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.timetable td small {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.timetable td {
+    padding: 10px;
+    vertical-align: middle;
+    transition: background-color 0.3s ease;
+}
+
+.time-picker {
+    margin-bottom: 18px;
+}
+
+.time-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.time-input input[type="time"] {
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    flex: 1;
+}
+
+.time-input span {
+    color: #666;
+    font-weight: 500;
+}
+
+.time-input input[type="time"]:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 8px rgba(41, 128, 185, 0.4);
+    outline: none;
+}
+
+
+.sidebar-nav ul li i {
+    transition: transform 0.3s ease;
+}
+
+.sidebar-nav ul li:hover i {
+    transform: rotate(20deg);
+}
+
+.card, .class-schedule-form {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover, .class-schedule-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+
+.sidebar-nav ul li a:hover {
+    background-color: #34495e;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.card .btn-add-class, .class-schedule-form button {
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card .btn-add-class:hover, .class-schedule-form button:hover {
+    background-color: #3498db;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.timetable tr {
+    transition: background-color 0.3s ease;
+}
+
+.timetable tr:hover {
+    background-color: #eaf1f5;
+    cursor: pointer;
+}
+
+
+.class-schedule-form input:focus,
+.class-schedule-form select:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 8px rgba(41, 128, 185, 0.4);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.class-schedule-form h2 i {
+    font-size: 20px;
+    color: #27ae60;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.class-schedule-form label i {
+    font-size: 16px;
+    color: #34495e;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+#edit-form label i {
+    font-size: 16px;
+    color: #34495e;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.course-entry {
+    position: relative;
+    padding: 10px;
+    margin: 4px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+}
+
+.course-entry:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-actions {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: none;
+    gap: 5px;
+}
+
+.course-entry:hover .course-actions {
+    display: flex;
+}
+
+.btn-edit-course,
+.btn-delete-course {
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.btn-edit-course:hover {
+    background: #3498db;
+    color: white;
+}
+
+.btn-delete-course:hover {
+    background: #e74c3c;
+    color: white;
+}
+
+.course-content {
+    padding-right: 25px;
+}
+
+.course-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.course-header i {
+    color: #2980b9;
+}
+
+.course-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+}
+
+.info-item i {
+    width: 16px;
+    color: #7f8c8d;
+}
+
+.timetable td {
+    min-width: 150px;
+    vertical-align: top;
+    padding: 8px;
+}
+
+.btn-edit {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-edit:hover {
+    background-color: #2980b9;
+}

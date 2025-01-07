@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>absence justification - coordinator</title>
+    <link rel="stylesheet" href="../css/admin-presence.css">
+    <link rel="stylesheet" href="../css/admin-justifications.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="menu">
+                <div class="menu-item" data-page="admin-dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>admin-dashboard</span>
+                </div>
+                <div class="menu-item" data-page="admin-presence">
+                    <i class="fas fa-user-check"></i>
+                    <span>admin-presence</span>
+                </div>
+                <div class="menu-item active" data-page="admin-justifications">
+                    <i class="fas fa-file-alt"></i>
+                    <span>admin-justifications</span>
+                </div>
+                <div class="menu-item" data-page="admin-statistics">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>statistics</span>
+                </div>
+                <div class="menu-item" data-page="admin-graphs">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>admin-graphs</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>absence justification</h1>
+            </div>
+
+            <!-- Filtres -->
+            <div class="filters-section">
+                <div class="filters-group">
+                    <select id="courseTypeFilter">
+                        <option value="">all courses types</option>
+                        <option value="elearning">E-Learning</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="other">other modules</option>
+                    </select>
+                    <select id="classFilter">
+                        <option value="">all classes</option>
+                    </select>
+                    <select id="dateFilter">
+                        <option value="">all dates</option>
+                        <option value="today">today</option>
+                        <option value="week">this week</option>
+                        <option value="month">this month</option>
+                    </select>
+                </div>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="studentSearch" placeholder="Rechercher un étudiant...">
+                </div>
+            </div>
+
+            <!-- Statistiques rapides -->
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <i class="fas fa-user-times"></i>
+                    <div class="stat-info">
+                        <h4>total absences</h4>
+                        <p id="totalAbsences">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="stat-info">
+                        <h4>justified absences</h4>
+                        <p id="justifiedCount">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <div class="stat-info">
+                        <h4>pending</h4>
+                        <p id="pendingCount">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Liste des absences -->
+            <div class="absences-list">
+                <table id="absencesTable">
+                    <thead>
+                        <tr>
+                            <th>student</th>
+                            <th>class</th>
+                            <th>date</th>
+                            <th>course</th>
+                            <th>type</th>
+                            <th>status</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- affichage dynamique -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Modal de justification -->
+            <div id="justificationModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>justify an absence</h2>
+                    <form id="justificationForm">
+                        <input type="hidden" id="absenceId">
+                        <div class="form-group">
+                            <label for="studentName">student:</label>
+                            <input type="text" id="studentName" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="className">class:</label>
+                            <input type="text" id="className" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="absenceDate">absence date:</label>
+                            <input type="text" id="absenceDate" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="courseName">course:</label>
+                            <input type="text" id="courseName" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="justificationReason">justification reason:</label>
+                            <textarea id="justificationReason" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="justificationDate">justification date:</label>
+                            <input type="date" id="justificationDate" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">validate justification</button>
+                            <button type="button" class="btn-secondary" onclick="closeModal()">cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/admin-justifications.js"></script>
+</body>
+</html> 

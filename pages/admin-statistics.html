@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin-statistics</title>
+    <link rel="stylesheet" href="../css/admin-statistics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Notifications Container -->
+    <div id="notificationsContainer" class="notifications-container"></div>
+
+    <div class="dashboard-wrapper">
+        <!-- Barre latérale -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li data-page="timetable">
+                        <i class="fas fa-calendar-alt"></i> admin-timetable
+                    </li>
+                    <li data-page="admin-presence">
+                        <i class="fas fa-check-circle"></i> admin-presence
+                    </li>
+                    <li data-page="admin-statistics" class="active">
+                        <i class="fas fa-chart-pie"></i> admin-statistics
+                    </li>
+                    <li data-page="admin-graphs">
+                        <i class="fas fa-chart-line"></i> admin-graphs
+                    </li>
+                    <li data-page="admin-justifications">
+                        <i class="fas fa-check-circle"></i> admin-justifications
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenu principal -->
+        <main class="main-content">
+            <!-- Section d'en-tête -->
+            <section class="header-section">
+                <header class="main-header">
+                    <h1>admin-statistics</h1>
+                    <div class="filters-container">
+                        <div class="filter-group">
+                            <label for="periodFilter">period :</label>
+                            <select id="periodFilter">
+                                <option value="week">this week</option>
+                                <option value="month">this month</option>
+                                <option value="semester">this semester</option>
+                                <option value="year">this year</option>
+                                <option value="custom">custom</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group date-filters">
+                            <label for="startDateFilter">from :</label>
+                            <input type="date" id="startDateFilter" disabled>
+                            <label for="endDateFilter">to :</label>
+                            <input type="date" id="endDateFilter" disabled>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="classFilter">class :</label>
+                            <select id="classFilter">
+                                <option value="">all classes</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="courseFilter">course :</label>
+                            <select id="courseFilter">
+                                <option value="">all courses</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="statusFilter">status :</label>
+                            <select id="statusFilter">
+                                <option value="all">all</option>
+                                <option value="active">active</option>
+                                <option value="dropped">dropped</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="attendanceRangeFilter">attendance rate :</label>
+                            <select id="attendanceRangeFilter">
+                                <option value="all">all</option>
+                                <option value="0-30">0-30%</option>
+                                <option value="31-50">31-50%</option>
+                                <option value="51-75">51-75%</option>
+                                <option value="76-100">76-100%</option>
+                            </select>
+                        </div>
+                    </div>
+                </header>
+            </section>
+
+            <!-- Grille principale -->
+            <div class="main-grid">
+                <!-- Colonne de gauche -->
+                <div class="left-column">
+                    <!-- Stats rapides -->
+                    <section class="quick-stats-section card">
+                        <h2><i class="fas fa-chart-line"></i> quick stats</h2>
+                        <div class="quick-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <h3>global attendance rate</h3>
+                                    <p id="globalAttendanceRate">--%</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <h3>active students</h3>
+                                    <p id="activeStudents">--</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-user-times"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <h3>dropped students</h3>
+                                    <p id="droppedStudents">--</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Alerts Section -->
+                    <section class="alerts-section card">
+                        <h2>
+                            <i class="fas fa-exclamation-triangle"></i> 
+                            alerts
+                            <span id="alertCount" class="alert-count">0</span>
+                        </h2>
+                        <div class="alerts-header">
+                            <div class="alerts-filters">
+                                <select id="alertTypeFilter">
+                                    <option value="all">all types</option>
+                                    <option value="dropped">dropped students</option>
+                                    <option value="absent">absences</option>
+                                </select>
+                                <select id="alertStatusFilter">
+                                    <option value="all">all status</option>
+                                    <option value="unread">unread</option>
+                                    <option value="read">read</option>
+                                </select>
+                            </div>
+                            <button id="markAllReadBtn" class="btn-secondary">
+                                <i class="fas fa-check-double"></i> mark all as read
+                            </button>
+                        </div>
+                        <div class="alerts-container" id="alertsContainer">
+                            <!-- Les alertes seront ajoutées dynamiquement ici -->
+                        </div>
+                        <div class="alerts-footer">
+                            <div class="alerts-summary">
+                                <span id="droppedCount" class="dropped-count">0 dropped students</span>
+                                <span id="alertsTotal" class="alerts-total">0 alerts in total</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!--  Column  de graphiques -->
+                <div class="right-column">
+                    <!-- Charts Section -->
+                    <section class="charts-section">
+                        <div class="chart-card card">
+                            <h2><i class="fas fa-chart-bar"></i> attendance rate by class</h2>
+                            <div class="chart-container">
+                                <canvas id="classAttendanceChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card card">
+                            <h2><i class="fas fa-chart-line"></i> attendance grades</h2>
+                            <div class="chart-container">
+                                <canvas id="attendanceGradesChart"></canvas>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Details de la session -->
+            <section class="detailed-section card">
+                <div class="section-header">
+                    <h2><i class="fas fa-table"></i> details by student</h2>
+                </div>
+                <div class="table-container">
+                    <table id="detailedStatsTable">
+                        <thead>
+                            <tr>
+                                <th>student</th>
+                                <th>class</th>
+                                <th>course</th>
+                                <th>attendance grade</th>
+                                <th>attendance rate</th>
+                                <th>attended sessions</th>
+                                <th>total sessions</th>
+                                <th>status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Les données seront ajoutées dynamiquement ici -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/admin-stats.js"></script>
+</body>
+</html>

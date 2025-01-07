@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teacher-statistics</title>
+    <link rel="stylesheet" href="../css/teacher-statistics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li data-page="timetable">
+                        <a href="#"><i class="fas fa-calendar-alt"></i> teacher-timetable</a>
+                    </li>
+                    <li data-page="statistics" class="active">
+                        <a href="#"><i class="fas fa-chart-bar"></i> teacher-statistics</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="stats-header">
+                <h1>teacher-statistics</h1>
+                <div class="filters">
+                    <select id="courseFilter" class="filter-select">
+                        <option value="">All courses</option>
+                    </select>
+                    <select id="periodFilter" class="filter-select">
+                        <option value="week">This week</option>
+                        <option value="month">This month</option>
+                        <option value="semester">This semester</option>
+                        <option value="year">This year</option>
+                    </select>
+                    <select id="classFilter" class="filter-select">
+                        <option value="">All classes</option>
+                    </select>
+                </div>
+            </header>
+
+            <div class="stats-grid">
+                <!-- Notes d'assiduité -->
+                <div class="stats-card">
+                    <h3><i class="fas fa-star"></i> attendance grades</h3>
+                    <div class="chart-container">
+                        <canvas id="attendanceGradesChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Taux de présence par étudiant -->
+                <div class="stats-card">
+                    <h3><i class="fas fa-user-check"></i> attendance rate by student</h3>
+                    <div class="table-container">
+                        <table id="studentAttendanceTable">
+                            <thead>
+                                <tr>
+                                    <th>student</th>
+                                    <th>attendance rate</th>
+                                    <th>status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Données dynamiques -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Alertes de drop -->
+                <div class="stats-card alerts">
+                    <h3><i class="fas fa-exclamation-triangle"></i> alerts drop</h3>
+                    <div class="alerts-container">
+                        <!-- Alertes dynamiques -->
+                    </div>
+                </div>
+
+                <!-- Taux de présence par classe -->
+                <div class="stats-card">
+                    <h3><i class="fas fa-users"></i> attendance rate by class</h3>
+                    <div class="chart-container">
+                        <canvas id="classAttendanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Détails des statistiques -->
+            <div class="detailed-stats">
+                <div class="stats-table-container">
+                    <h3>details of statistics</h3>
+                    <table id="detailedStatsTable">
+                        <thead>
+                            <tr>
+                                <th>student</th>
+                                <th>course</th>
+                                <th>attendance grade</th>
+                                <th>total sessions</th>
+                                <th>attended sessions</th>
+                                <th>attendance rate</th>
+                                <th>status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Données dynamiques -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast de notification -->
+    <div id="notification-toast" class="notification-toast">
+        <i class="fas fa-check-circle"></i>
+        <span class="notification-message"></span>
+    </div>
+
+    <script src="../js/teacher-statistics.js"></script>
+    <script src="../js/navigation.js"></script>
+</body>
+</html> 

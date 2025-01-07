@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My timetable student</title>
+    <link rel="stylesheet" href="../css/timetable-student.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="timetable-wrapper">
+        <!-- Barre latérale -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active" data-page="timetable">
+                        <i class="fas fa-calendar-alt"></i> student-timetable
+                    </li>
+                    <li data-page="student-grades">
+                        <i class="fas fa-check-circle"></i> student-grades
+                    </li>
+                    <li data-page="student-absences">
+                        <i class="fas fa-exclamation-circle"></i> student-absences
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenu principal -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-info">
+                    <h1>My timetable student</h1>
+                    <div class="class-info">Class: <span id="student-class-name"></span></div>
+                </div>
+                <div class="user-info">
+                    <span id="student-name"></span>
+                    <a href="#" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </header>
+
+            <section class="timetable-container">
+                <div class="timetable-header">
+                    <div class="time-slot">time</div>
+                    <div class="day">Monday</div>
+                    <div class="day">Tuesday</div>
+                    <div class="day">Wednesday</div>
+                    <div class="day">Thursday</div>
+                    <div class="day">Friday</div>
+                </div>
+                <div class="timetable-grid" id="timetable-grid">
+                    <!-- Le contenu sera généré dynamiquement par JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/logout.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/timetable-student.js"></script>
+</body>
+</html> 

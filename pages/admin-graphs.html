@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphiques Statistiques</title>
+    <link rel="stylesheet" href="../css/admin-graphs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li data-page="timetable">
+                        <i class="fas fa-calendar-alt"></i> admin-timetable
+                    </li>
+                    <li data-page="admin-presence">
+                        <i class="fas fa-check-circle"></i> admin-presence
+                    </li>
+                    <li data-page="admin-statistics">
+                        <i class="fas fa-chart-pie"></i> admin-statistics
+                    </li>
+                    <li data-page="admin-graphs" class="active">
+                        <i class="fas fa-chart-line"></i> admin-graphs
+                    </li>
+                    <li data-page="admin-justifications">
+                        <i class="fas fa-check-circle"></i> admin-justifications
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- contenu principal -->
+        <main class="main-content">
+            <!-- section d'en-tête -->
+            <section class="header-section">
+                <header class="main-header">
+                    <h1>statistics graphics</h1>
+                    <div class="filters-container">
+                        <div class="filter-group">
+                            <label for="periodFilter">period :</label>
+                            <select id="periodFilter">
+                                <option value="trimester1">trimester 1</option>
+                                <option value="trimester2">trimester 2</option>
+                                <option value="both">both trimesters</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="classFilter">class :</label>
+                            <select id="classFilter">
+                                <option value="">all classes</option>
+                            </select>
+                        </div>
+                    </div>
+                </header>
+            </section>
+
+            <!-- grille de graphiques -->
+            <div class="graphs-grid">
+                <!-- taux de présence par étudiant -->
+                <section class="graph-card">
+                    <h2><i class="fas fa-user-graduate"></i> attendance rate by student</h2>
+                    <div class="graph-container">
+                        <canvas id="studentAttendanceChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- taux de présence par classe -->
+                <section class="graph-card">
+                    <h2><i class="fas fa-users"></i> attendance rate by class</h2>
+                    <div class="graph-container">
+                        <canvas id="classAttendanceChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- volume de cours par type -->
+                <section class="graph-card">
+                    <h2><i class="fas fa-book"></i> course volume by type</h2>
+                    <div class="graph-container">
+                        <canvas id="courseVolumeChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- graphique cumulé par trimestre -->
+                <section class="graph-card">
+                    <h2><i class="fas fa-chart-bar"></i> cumulative volume by trimester</h2>
+                    <div class="graph-container">
+                        <canvas id="trimesterVolumeChart"></canvas>
+                    </div>
+                </section>
+            </div>
+
+            <!-- section de légende -->
+            <section class="legend-section">
+                <h3>color legend</h3>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <span class="color-dot high"></span>
+                        <span>≥ 70% - excellent</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-dot good"></span>
+                        <span>50.1% - 69.9% - good</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-dot medium"></span>
+                        <span>30.1% - 50% - medium</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-dot low"></span>
+                        <span>≤ 30% - critical</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/admin-graphs.js"></script>
+</body>
+</html> 
